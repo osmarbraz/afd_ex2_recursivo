@@ -59,15 +59,10 @@ public class Principal {
 
         // Estado 1 para 2
         if (avaliar == 'a') {
-            //Se chegou no final da entrada
-            if (i == entrada.length()) {
-                //Guarda o próximo estado
-                estado_proximo = 2;
+            //Guarda o próximo estado
+            estado_proximo = 2;
 
-                avaliaEstado2(entrada);
-            } else {
-                estado_proximo = -1;
-            }
+            avaliaEstado2(entrada);
         }
     }
 
@@ -75,12 +70,24 @@ public class Principal {
     public static void avaliaEstado2(String entrada) {
         //Atualiza o estado atual
         estado_atual = estado_proximo;
+        
+         //Se tem caracteres a avaliar
+        if (i < entrada.length()) {
+            //Recupera um caracter
+            char avaliar = proximoCaracter(entrada);
+            
+            //Estados a avaliar vão aqui
+            
+            //Entrada inválida 
+            estado_proximo = -1;
+            avaliaEstado2(entrada);
+        }       
     }
 
     public static void main(String args[]) {
-        
+
         System.out.println("\nImplementacao recursiva:\n");
-        
+
         String entrada = "";
         if (args.length != 0) {
             entrada = args[0];
